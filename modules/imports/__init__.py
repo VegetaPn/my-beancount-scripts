@@ -24,7 +24,7 @@ def get_account_by_guess(from_user, description, time=None):
             else:
                 return value
             break
-    return "Expenses:Unknown"
+    return "Expenses:Shopping"
 
 
 def get_income_account_by_guess(from_user, description, time=None):

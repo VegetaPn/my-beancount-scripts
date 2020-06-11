@@ -13,10 +13,10 @@ from . import (DictReaderStrip, get_account_by_guess,
 from .base import Base
 from .deduplicate import Deduplicate
 
-Account零钱通 = 'Assets:Company:WeChat:Lingqiantong'
-Account收入红包 = 'Income:RedBag'
-Account支出红包 = 'Expenses:RedBag'
-Account余额 = 'Assets:Balances:WeChat'
+Account零钱通 = 'Assets:Cash'
+Account收入红包 = 'Income:Gift'
+Account支出红包 = 'Expenses:Gift'
+Account余额 = 'Assets:Cash'
 
 
 class WeChat(Base):

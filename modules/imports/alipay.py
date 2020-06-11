@@ -12,7 +12,9 @@ from . import (DictReaderStrip, get_account_by_guess,
 from .base import Base
 from .deduplicate import Deduplicate
 
-Account支付宝 = 'Assets:Company:Alipay:StupidAlipay'
+# StupidAlipay
+Account支付宝 = 'Liabilities:CreditCard:SPDB'
+AccountCash = 'Assets:Cash'
 
 
 class Alipay(Base):
@@ -75,7 +77,10 @@ class Alipay(Base):
             price = row['金额（元）']
             money_status = row['资金状态']
             if money_status == '已支出':
-                data.create_simple_posting(entry, Account支付宝, None, None)
+                if '蚂蚁财富' in row['商品名称']:
+                    data.create_simple_posting(entry, AccountCash, None, None)
+                else: 
+                    data.create_simple_posting(entry, Account支付宝, None, None)
                 amount = -amount
             elif money_status == '资金转移':
                 data.create_simple_posting(entry, Account支付宝, None, None)
